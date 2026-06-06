@@ -1,9 +1,10 @@
 import emailjs from '@emailjs/browser';
 import type { ContactFormData } from '@/types/index';
 
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
+// Fallback to hardcoded values if env vars not available
+const SERVICE_ID = (import.meta.env.VITE_EMAILJS_SERVICE_ID as string) || 'service_lvfl03p';
+const TEMPLATE_ID = (import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string) || 'template_9wiolow';
+const PUBLIC_KEY = (import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string) || 'ksGBkbeFjreVoxJmv';
 
 export async function submitContactForm(data: ContactFormData): Promise<void> {
   const result = await emailjs.send(
